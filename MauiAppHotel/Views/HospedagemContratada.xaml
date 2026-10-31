@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.HospedagemContratada"
+             Title="Hospedagem Contratada"
+             BackgroundColor="{StaticResource Gray100}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10"
+                             Spacing="10">
+
+            <Label Text="Resumo da Reserva"
+                   FontFamily="Kalam"
+                   FontSize="40"
+                   TextColor="{StaticResource Primary}" />
+
+            <Frame Padding="15">
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+                      ColumnDefinitions="*,2*"
+                      RowSpacing="8">
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="Suíte:" />
+                    <Label Grid.Row="0" Grid.Column="1"
+                           Text="{Binding QuartoSelecionado.Descricao}"
+                           TextColor="{StaticResource Primary}" />
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Adultos:" />
+                    <Label Grid.Row="1" Grid.Column="1"
+                           Text="{Binding QtdAdultos}"
+                           TextColor="{StaticResource Primary}" />
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Crianças:" />
+                    <Label Grid.Row="2" Grid.Column="1"
+                           Text="{Binding QtdCriancas}"
+                           TextColor="{StaticResource Primary}" />
+
+                    <Label Grid.Row="3" Grid.Column="0" Text="Check-in:" />
+                    <Label Grid.Row="3" Grid.Column="1"
+                           Text="{Binding DataCheckIn, StringFormat='{0:dd/MM/yyyy}'}"
+                           TextColor="{StaticResource Primary}" />
+
+                    <Label Grid.Row="4" Grid.Column="0" Text="Check-out:" />
+                    <Label Grid.Row="4" Grid.Column="1"
+                           Text="{Binding DataCheckOut, StringFormat='{0:dd/MM/yyyy}'}"
+                           TextColor="{StaticResource Primary}" />
+
+                    <Label Grid.Row="5" Grid.Column="0" Text="Estadia:" />
+                    <Label Grid.Row="5" Grid.Column="1"
+                           Text="{Binding Estadia, StringFormat='{0} diária(s)'}"
+                           TextColor="{StaticResource Primary}" />
+
+                    <Label Grid.Row="6" Grid.Column="0"
+                           Text="Total:"
+                           FontAttributes="Bold" />
+                    <Label Grid.Row="6" Grid.Column="1"
+                           Text="{Binding ValorTotal, StringFormat='{0:C2}'}"
+                           FontAttributes="Bold"
+                           FontSize="Large"
+                           TextColor="{StaticResource Primary}" />
+                </Grid>
+            </Frame>
+
+            <Button Text="Nova reserva"
+                    Clicked="NovaReserva_Clicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
